@@ -9,9 +9,6 @@ def top_rail(string, rails):
 
     interval = (rails - 1) * 2
 
-    ### calculate how many numbers will be in top rail
-    ### length / interval then round down?
-
     upper_range = math.ceil(length/interval)
 
     for i in range(0,upper_range):
@@ -20,12 +17,56 @@ def top_rail(string, rails):
     return top_rail
 
 
+# def mid_rails(string, rails, rail_num):
+#     string_list = list(string)
 
-def mid_rails(string, rails):
-    pass
+#     length = len(string_list)
+
+#     mid_rail = []
+
+#     interval = (rails - 1) * 2
+
+#     lower_range = rail_num
+
+#     upper_range = math.ceil(length/interval) * 2
+
+#     for i in range(lower_range, upper_range):
+
+
+#     return mid_rails
 
 def bot_rail(string, rails):
-    pass
+    string_list = list(string)
+
+    length = len(string_list)
+
+    bot_rail = []
+
+    interval = (rails - 1) * 2
+
+    upper_range = math.floor(length/interval)
+
+    for i in range(0,upper_range):
+        bot_rail.append(string_list[(rails - 1) + interval * i])
+
+    return bot_rail
 
 
-print(top_rail('0123456789',5))
+def main():
+
+    string = 'abcdefghijklmnopqrstuvwxyz'
+    rails = 3
+    top = top_rail(string,rails)
+
+    # mid_rail_count = rails - 2
+
+    # for i in range(1,mid_rail_count):
+    #     mid_rail = mid_rails(string,rails,i)
+
+
+    bot = bot_rail(string,rails)
+
+    print(top)
+    print(bot)
+
+main() 
